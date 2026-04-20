@@ -10,12 +10,12 @@ Goal
 
 Create a mini profile card where the student can:
 
-show a name
-change the name to Chris
-change the name to Sara
-reset the name back to Guest
-What they should practice
-using set() to assign completely new values
+- show a name
+- change the name to Chris
+- change the name to Sara
+- reset the name back to Guest
+- What they should practice
+- using set() to assign completely new values
 reading the signal with ()
 
 ```
@@ -61,10 +61,10 @@ Create a product quantity selector.
 
 Display:
 
-product name
-quantity
-buttons to add/remove items
-button to clear cart
+- product name
+- quantity
+- buttons to add/remove items
+- button to clear cart
 
 ```
 import { Component, signal } from '@angular/core';
