@@ -29,7 +29,7 @@ import { Component, signal } from '@angular/core';
     <h2>Name Challenge</h2>
     <p>Current Name: {{ username() }}</p>
 
-    <button (click)="changeToAli()">Ali</button>
+    <button (click)="changeToChris()">Chris</button>
     <button (click)="changeToSara()">Sara</button>
     <button (click)="resetName()">Reset</button>
   `
@@ -37,7 +37,7 @@ import { Component, signal } from '@angular/core';
 export class NameChangerComponent {
   username = signal('Guest');
 
-  changeToAli() {
+  changeToChris() {
     // use set()
   }
 
