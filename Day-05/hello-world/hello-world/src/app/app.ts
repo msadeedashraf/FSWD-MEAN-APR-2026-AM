@@ -8,5 +8,13 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('hello-world');
+  protected readonly title = signal('Our First Angular Project');
+
+  teacher = signal("Sadeed")
+  courses  = signal('Linux')
+
+  changeTitle(){
+    this.title.set('This is title change');
+  }
+
 }
