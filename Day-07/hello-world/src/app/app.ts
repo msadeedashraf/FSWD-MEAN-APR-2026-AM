@@ -1,14 +1,17 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-root',  
   templateUrl:'./app.html',  
   styleUrl: './app.css'
 })
 export class App {
-  //protected readonly title = signal('Our First Angular Project');
+  protected readonly title = signal('Our First Angular Project');
 
+  /*
   //First Challenge
 
    username = signal('Guest');
@@ -27,7 +30,8 @@ export class App {
     // use set()
     this.username.set('Guest')
   }
-  
+  */
+
   /*
   quantity = signal(1);
 
@@ -48,4 +52,24 @@ export class App {
 
   }
 */
+
+//To-Do Counter Challenge
+
+tasksLeft = signal(3);
+ 
+  completeTask() {
+//Update
+    this.tasksLeft.update(t => (t > 0 ? t -1 :0 ) );
+}
+
+addTask() {
+    this.tasksLeft.update(t => t +1);
+//update
+  }
+ 
+  resetTasks() {
+//taskLeft
+this.tasksLeft.set(3);
+  }
+
 }

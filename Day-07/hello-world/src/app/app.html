@@ -1,10 +1,10 @@
 <!-- challange - app-name-changer -->
-<h2>Name Challenge</h2>
+<!-- <h2>Name Challenge</h2>
     <p>Current Name: {{ username() }}</p>
 
     <button (click)="changeToChris()">Chris</button>
     <button (click)="changeToSara()">Sara</button>
-    <button (click)="resetName()">Reset</button>
+    <button (click)="resetName()">Reset</button> -->
 
 
 <!-- Shopping Cart Quantity -->
@@ -16,3 +16,18 @@
     <button (click)="addOne()">Add 1</button>
     <button (click)="removeOne()">Remove 1</button>
     <button (click)="clearCart()">Clear Cart</button> -->
+
+<h2>To-Do Counter Challenge</h2>
+<p>Tasks Left: {{ tasksLeft() }}</p>
+<button (click)="completeTask()">Complete Task</button>
+<button (click)="addTask()">Add Task</button>
+<button (click)="resetTasks()">Reset</button>
+@if (tasksLeft() <= 0 )
+{ 
+    <p>You have no more task</p>
+}
+@else
+{
+      <p>You still have work to do</p>
+    }
+
