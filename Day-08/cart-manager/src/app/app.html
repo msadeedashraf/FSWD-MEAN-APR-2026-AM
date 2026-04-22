@@ -1,0 +1,32 @@
+<h2>Online Store Manager</h2>
+<p>Product: {{product()}}</p>
+<p>Items in the cart : {{itemQty()}}</p>
+<button (click)="AddItem()" [disabled]="itemQty()===maxStock()">Add Item</button>
+<button (click)="RemoveItem()" [disabled]="itemQty()===0">Remove Item</button>
+<button (click)="ClearItem()">Clear</button>
+
+<p>Total Price : {{itemQty() * itemPrice()}} </p>
+
+@if (itemQty() > 0)
+{
+<button>Check Out</button>
+
+}
+
+
+@if(itemQty() == 0)
+{
+  <p>You have no item in the list</p>
+}
+@else if (itemQty() === maxStock())
+{
+<p>Stock limit reached</p>
+
+}
+@else
+{
+  <p>You have {{itemQty()}} {{ itemQty()===1 ? 'item' : 'items'   }} in the list</p>
+}
+
+
+
