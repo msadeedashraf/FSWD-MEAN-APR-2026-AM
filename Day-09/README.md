@@ -1,0 +1,57 @@
+```
+<h1>MiniStore</h1>
+<h2>Search Products</h2>
+<input type="text">
+<h2>Avaialable Products</h2>
+
+<div>
+  <h3>Headphones</h3>
+  <p>Price: $99.00</p>
+  <p>Stock: 5</p>
+  <button>Add to cart</button>
+</div>
+
+<div>
+  <h3>Headphones</h3>
+  <p>Price: $99.00</p>
+  <p>Stock: 5</p>
+  <button>Add to cart</button>
+</div>
+<div>
+  <h3>Headphones</h3>
+  <p>Price: $99.00</p>
+  <p>Stock: 5</p>
+  <button>Add to cart</button>
+</div>
+<div>
+  <h3>Headphones</h3>
+  <p>Price: $99.00</p>
+  <p>Stock: 5</p>
+  <button>Add to cart</button>
+</div>
+
+
+<hr>
+
+<h2>Your Cart</h2>
+
+<div>
+  <h3>Webcam</h3>
+   <p>Price: $60.00</p> 
+   <p>Quantity: 1</p>
+   <p>Subtotal: $60.00</p>
+   <button>+</button>
+   <button>-</button>
+   <button>Remove</button>
+</div>
+
+<hr>
+
+<h2>Order Summary</h2>
+<p>Total Items: 1</p>
+<p>Total Cost: $60.00</p>
+<button>Place Order</button>
+<button>Clear the Cart</button>
+
+<p>Review your cart before placing the order.</p>
+```
