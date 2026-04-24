@@ -27,7 +27,9 @@ type CartItems = {
 })
 export class App {
   protected readonly title = signal('mini-store-v1');
-
+searchText = signal('');
+orderPlaced  = signal(false);
+orderMessage = signal('');
 
   products = signal<Product[]>([
 {id : 1, name : 'Headphones', price: 105, stock:9 },
@@ -38,7 +40,7 @@ export class App {
 { id: 6, name: 'Samsung TV', price: 900, stock: 5 }
 ]);
 
-searchText = signal('');
+
 
 filteredProduct = computed(
 
@@ -53,7 +55,18 @@ filteredProduct = computed(
 });
 
 
+cart =  signal<CartItems[]>([]);
+
+addToCart(product : Product)
+{
+
+  this.orderPlaced.set(false);
+  this.orderMessage.set('');
+
+  
 
 
 
+  
+}
 }

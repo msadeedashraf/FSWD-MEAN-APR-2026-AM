@@ -163,3 +163,24 @@ filteredProduct = computed(
 
 });
 ```
+
+- when no product found
+```
+@if(filteredProduct().length === 0)
+{
+<p>No product found.</p>
+}
+@else
+{
+  @for(product of filteredProduct(); track product.id )
+{
+  <div>
+    <h3>{{product.name}}</h3>
+    <p>Price: {{product.price}}</p>
+    <p>Stock: {{product.stock}}</p>
+    <button>Add to cart</button>
+  </div>
+
+}
+```
+
