@@ -112,6 +112,30 @@ product = signal<Product[]>([
 }
 ```
 
+
+```
+
+<input 
+  type="text"
+  [ngModel] = "searchText()"
+  (ngModelChange) = "searchText.set($event)"  
+  placeholder="Search for a product"
+>
+
+@for(product of filteredProduct(); track product.id )
+{
+  <div>
+    <h3>{{product.name}}</h3>
+    <p>Price: {{product.price}}</p>
+    <p>Stock: {{product.stock}}</p>
+    <button>Add to cart</button>
+  </div>
+
+}
+
+
+```
+
 ```
 import { FormsModule } from '@angular/forms';
 
@@ -137,19 +161,4 @@ filteredProduct = computed(
   );
 
 });
-```
-
-```
-@for(product of filteredProduct(); track product.id )
-{
-  <div>
-    <h3>{{product.name}}</h3>
-    <p>Price: {{product.price}}</p>
-    <p>Stock: {{product.stock}}</p>
-    <button>Add to cart</button>
-  </div>
-
-}
-
-
 ```
