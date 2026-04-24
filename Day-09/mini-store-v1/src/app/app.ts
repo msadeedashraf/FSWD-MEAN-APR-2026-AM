@@ -62,11 +62,6 @@ addToCart(product : Product)
 
   this.orderPlaced.set(false);
   this.orderMessage.set('');
-
-  
-
-
-
   
 }
 }
