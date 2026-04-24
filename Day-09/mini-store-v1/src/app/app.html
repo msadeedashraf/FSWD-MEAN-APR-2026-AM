@@ -1,33 +1,35 @@
 <h1>MiniStore</h1>
 <h2>Search Products</h2>
-<input type="text">
+
+
+<input 
+  type="text"
+  [ngModel] = "searchText()"
+  (ngModelChange) = "searchText.set($event)"  
+  placeholder="Search for a product"
+>
+
 <h2>Avaialable Products</h2>
 
-<div>
-  <h3>Headphones</h3>
-  <p>Price: $99.00</p>
-  <p>Stock: 5</p>
-  <button>Add to cart</button>
-</div>
+<!-- DRY -->
 
-<div>
-  <h3>Headphones</h3>
-  <p>Price: $99.00</p>
-  <p>Stock: 5</p>
+<!-- <div>
+  <h3>{{products()[0].name}}</h3>
+  <p>Price: {{products()[0].price}}</p>
+  <p>Stock: {{products()[0].stock}}</p>
   <button>Add to cart</button>
-</div>
-<div>
-  <h3>Headphones</h3>
-  <p>Price: $99.00</p>
-  <p>Stock: 5</p>
-  <button>Add to cart</button>
-</div>
-<div>
-  <h3>Headphones</h3>
-  <p>Price: $99.00</p>
-  <p>Stock: 5</p>
-  <button>Add to cart</button>
-</div>
+</div> -->
+
+@for(product of filteredProduct(); track product.id )
+{
+  <div>
+    <h3>{{product.name}}</h3>
+    <p>Price: {{product.price}}</p>
+    <p>Stock: {{product.stock}}</p>
+    <button>Add to cart</button>
+  </div>
+
+}
 
 
 <hr>
