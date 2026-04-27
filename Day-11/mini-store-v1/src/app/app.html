@@ -1,7 +1,8 @@
 <h1>MiniStore</h1>
-
-
+<h3>Day-11</h3>
 <h2>Search Products</h2>
+
+
 <input 
   type="text"
   [ngModel] = "searchText()"
@@ -47,15 +48,36 @@
 
 <h2>Your Cart</h2>
 
-<div>
-  <h3>Webcam</h3>
-   <p>Price: $60.00</p> 
-   <p>Quantity: 1</p>
-   <p>Subtotal: $60.00</p>
-   <button>+</button>
-   <button>-</button>
-   <button>Remove</button>
-</div>
+
+@if (cart().length ===0 )
+{
+
+  <p>Your cart is empty</p>
+}
+@else
+{
+  @for(item of cart(); track item.id)
+  {
+
+    <div>
+      <h3>{{item.name}}</h3>
+       <p>Price: {{item.price}} </p> 
+       <p>Quantity: {{item.quantity}} </p>
+       <p>Subtotal: {{item.price*item.quantity}}</p>
+       <button 
+       (click) = "increaseQuantity(item.id)" 
+       [disabled] = "item.quantity === item.stock"
+       >+</button>
+       <button (click) = "decreaseQuantity(item.id)" 
+        >-</button>
+       <button>Remove</button>
+    </div>
+  }
+
+
+
+}
+
 
 <hr>
 
