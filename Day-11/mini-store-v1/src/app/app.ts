@@ -114,6 +114,8 @@ items => items.map(item => item.id === producId ? {
 
 }
 
+
+/*
 decreaseQuantity(producId :number)
 {
 
@@ -128,6 +130,17 @@ items => items.map(item => item.id === producId ? {
   )
 
 }
-
+*/
+decreaseQuantity(productId: number) {
+  this.cart.update(items =>
+    items
+      .map(item =>
+        item.id === productId
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+      .filter(item => item.quantity > 0)
+  );
+}
 
 }
