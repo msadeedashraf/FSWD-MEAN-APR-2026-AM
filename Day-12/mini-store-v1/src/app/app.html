@@ -1,0 +1,113 @@
+<h1>MiniStore</h1>
+<h3>Day-12</h3>
+<h2>Search Products</h2>
+
+
+<input 
+  type="text"
+  [ngModel] = "searchText()"
+  (ngModelChange) = "searchText.set($event)"  
+  placeholder="Search for a product"
+>
+
+<h2>Avaialable Products</h2>
+
+<!-- DRY -->
+
+<!-- <div>
+  <h3>{{products()[0].name}}</h3>
+  <p>Price: {{products()[0].price}}</p>
+  <p>Stock: {{products()[0].stock}}</p>
+  <button>Add to cart</button>
+</div> -->
+
+
+@if(filteredProduct().length === 0)
+{
+<p>No product found.</p>
+}
+@else
+{
+  @for(product of filteredProduct(); track product.id )
+{
+  <div class="product-card">
+    <h3>{{product.name}}</h3>
+    <p>Price: {{ product.price  }}</p>
+    <p>Stock: {{product.stock}}</p>
+    <button (click)="addToCart(product)" >Add to cart</button>
+  </div>
+
+}
+
+
+}
+
+
+
+<hr>
+
+<h2>Your Cart</h2>
+
+
+@if (cart().length ===0 )
+{
+
+  <p>Your cart is empty</p>
+}
+@else
+{
+  @for(item of cart(); track item.id)
+  {
+
+    <div class="cart-item">
+      <h3>{{item.name}}</h3>
+       <p>Price: {{item.price}} </p> 
+       <p>Quantity: {{item.quantity}} </p>
+       <p>Subtotal: {{item.price*item.quantity}}</p>
+       <button 
+       (click) = "increaseQuantity(item.id)" 
+       [disabled] = "item.quantity === item.stock"
+       >+</button>
+       <button (click) = "decreaseQuantity(item.id)" 
+        >-</button>
+       <button (click)="removeFromCart(item.id)" >Remove</button>
+    </div>
+  }
+
+
+
+}
+
+
+<hr>
+
+
+<div class="summary-box">
+
+
+<h2>Order Summary</h2>
+<p>Total Items: {{totalItems()}}</p>
+<p>Total Cost: {{cartTotal()}}</p>
+
+
+<button (click)="placeOrder()" >Place Order</button>
+<button (click)="clearCart()">Clear the Cart</button>
+
+@if( orderMessage())
+{
+<p class="success">{{orderMessage()}}</p>
+
+}
+
+@if( orderPlaced() )
+{
+  <p class="success">Thank you for your order</p>
+
+}
+@else
+{
+
+
+  <p>Review your cart before placing the order.</p>
+}
+</div>
