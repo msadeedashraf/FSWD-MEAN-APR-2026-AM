@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Tech Store Skeleton</title>
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <!-- Top Utility Bar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo">{{storeName.substring(0,4)}}<span>{{storeName.substring(4)}}</span></div>
+      <div class="location">{{location}}</div>
+    </div>
+
+    <div class="search-area">
+      <select class="search-category">
+        <option>All</option>
+        <option>Audio</option>
+        <option>Accessories</option>
+        <option>Displays</option>
+        <option>Cameras</option>
+      </select>
+      <input type="text" placeholder="Search {{storeName | lowercase}} Store" />
+      <button class="search-btn">Search</button>
+    </div>
+
+    <div class="topbar-right">
+      <div class="nav-box">
+        <small>Hello, Sign in</small>
+        <strong>Account</strong>
+      </div>
+      <div class="nav-box">
+        <small>Returns</small>
+        <strong>& Orders</strong>
+      </div>
+      <div class="cart-box">
+        🛒 <strong>Cart</strong>
+      </div>
+    </div>
+  </header>
+
+  <!-- Secondary Nav -->
+  <nav class="subnav">
+    @for(link of navLinks; track link.label)
+    {
+      <a [href]="link.href">{{link.label}}</a>
+    }
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>{{heroTitle}}</h1>
+      <p>{{heroText}}</p>
+    </div>
+  </section>
+
+  <!-- Main Layout -->
+  <main class="page-content">
+    <!-- Left/Main Products -->
+    <section class="products-section">
+      <div class="section-title-row">
+        <h2>Featured Products</h2>
+        <p>Hardcoded skeleton for HTML/CSS teaching</p>
+      </div>
+
+      <div class="products-grid">
+        @for(product of products; track product.id)
+        {
+          
+          <article class="product-card">
+            <div class="product-image">Image</div>
+            <h3>{{product.name}}</h3>
+            <p class="product-category">Category: {{product.category}}</p>
+            <p class="product-rating">{{product.rating}}</p>
+            <p class="product-price">{{product.price | currency}}</p>
+            <p class="product-stock">{{product.stockText}}</p>
+            <button class="cart-btn">Add to Cart</button>
+          </article>
+        }
+
+        
+      </div>
+    </section>
+
+    <!-- Right/Order Summary -->
+    <aside class="summary-section">
+      <div class="summary-card">
+        <h2>Order Summary</h2>
+        <p><strong>Items:</strong> {{summaryItems}}</p>
+        <p><strong>Total:</strong> {{ summaryTotal | currency }}</p>
+        <button class="buy-btn">Proceed to Checkout</button>
+        <button class="clear-btn">Clear Cart</button>
+      </div>
+
+      <div class="cart-preview">
+        <h3>Your Cart</h3>
+
+        @for(item of cartPreview; track item.name)
+        {
+<div class="cart-item">
+          <div>
+            <strong>{{item.name}}</strong>
+            <p>{{item.details}}</p>
+          </div>
+          <span>{{item.total}}</span>
+        </div>
+        }
+        
+
+     
+      </div>
+    </aside>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-backtop">
+      <a href="#">Back to top</a>
+    </div>
+
+    <div class="footer-main">
+      <div class="footer-column">
+        <h4>Get to Know Us</h4>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Blog</a>
+        <a href="#">Store Info</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Shop With Us</h4>
+        <a href="#">Audio</a>
+        <a href="#">Accessories</a>
+        <a href="#">Displays</a>
+        <a href="#">Cameras</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Support</h4>
+        <a href="#">Your Account</a>
+        <a href="#">Orders</a>
+        <a href="#">Returns</a>
+        <a href="#">Help Center</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Teaching Demo</h4>
+        <p>This footer is part of the HTML/CSS-only storefront skeleton version.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 {{storeName}} Store. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
