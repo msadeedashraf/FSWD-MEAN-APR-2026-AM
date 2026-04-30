@@ -1,0 +1,154 @@
+<header class="topbar">
+  <div class="topbar-left">
+    <div class="logo">mini<span>store</span></div>
+    <div class="location">{{ location }}</div>
+  </div>
+
+  <div class="search-area">
+    <select class="search-category">
+      <option>All</option>
+      <option>Audio</option>
+      <option>Accessories</option>
+      <option>Displays</option>
+      <option>Cameras</option>
+    </select>
+
+    <input
+      type="text"
+      [ngModel]="searchText()"
+      (ngModelChange)="searchText.set($event)"
+      placeholder="Search {{ storeName }}"
+    />
+
+    <button class="search-btn">Search</button>
+  </div>
+
+  <div class="topbar-right">
+    <div class="nav-box">
+      <small>Hello, Sign in</small>
+      <strong>Account</strong>
+    </div>
+    <div class="nav-box">
+      <small>Returns</small>
+      <strong>& Orders</strong>
+    </div>
+    <div class="cart-box">
+      🛒 <strong>Cart ({{ totalItems() }})</strong>
+    </div>
+  </div>
+</header>
+
+<nav class="subnav">
+  @for (link of navLinks; track link.label) {
+    <a [href]="link.href">{{ link.label }}</a>
+  }
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>{{ heroTitle }}</h1>
+    <p>{{ heroText }}</p>
+  </div>
+</section>
+
+<main class="page-content">
+  <section id="products" class="products-section">
+    <div class="section-title-row">
+      <div>
+        <h2>Featured Products</h2>
+        <p>Angular signals storefront version</p>
+      </div>
+    </div>
+
+    @if (filteredProducts().length === 0) {
+      <div class="empty-panel">
+        <p>No matching products found.</p>
+      </div>
+    } @else {
+      <div class="products-grid">
+        @for (product of filteredProducts(); track product.id) {
+          <article class="product-card">
+            <div class="product-image">Image</div>
+            <h3>{{ product.name }}</h3>
+            <p class="product-category">Category: {{ product.category }}</p>
+            <p class="product-rating">{{ product.rating }}</p>
+            <p class="product-price">{{ product.price | currency }}</p>
+            <p class="product-stock">Stock: {{ product.stock }}</p>
+            <button class="cart-btn" (click)="addToCart(product)">Add to Cart</button>
+          </article>
+        }
+      </div>
+    }
+  </section>
+
+  <aside class="summary-section">
+    <div class="summary-card">
+      <h2>Order Summary</h2>
+      <p><strong>Items:</strong> {{ totalItems() }}</p>
+      <p><strong>Total:</strong> {{ cartTotal() | currency }}</p>
+
+      @if (cart().length > 0) {
+        <button class="buy-btn" (click)="placeOrder()">Proceed to Checkout</button>
+        <button class="clear-btn" (click)="clearCart()">Clear Cart</button>
+      } @else {
+        <p class="empty-message">Add items to see your summary.</p>
+      }
+
+      @if (orderMessage()) {
+        <div class="status-box" [class.success]="orderPlaced()" [class.error]="!orderPlaced()">
+          {{ orderMessage() }}
+        </div>
+      }
+    </div>
+
+    <div class="cart-preview">
+      <h3>Your Cart</h3>
+
+      @if (cart().length === 0) {
+        <p class="empty-message">Your cart is empty.</p>
+      } @else {
+        @for (item of cart(); track item.id) {
+          <div class="cart-item">
+            <div class="cart-item-info">
+              <strong>{{ item.name }}</strong>
+              <p>{{ item.price | currency }} x {{ item.quantity }}</p>
+              <p class="line-total">Subtotal: {{ item.price * item.quantity | currency }}</p>
+
+              @if (item.quantity === item.stock) {
+                <p class="warning-text">Maximum stock reached</p>
+              }
+            </div>
+
+            <div class="cart-controls">
+              <button class="qty-btn" (click)="increaseQuantity(item.id)" [disabled]="item.quantity === item.stock">+</button>
+              <button class="qty-btn" (click)="decreaseQuantity(item.id)">-</button>
+              <button class="remove-btn" (click)="removeFromCart(item.id)">Remove</button>
+            </div>
+          </div>
+        }
+      }
+    </div>
+  </aside>
+</main>
+
+<footer class="footer">
+  <div class="footer-backtop">
+    <a href="#">Back to top</a>
+  </div>
+
+  <div class="footer-main">
+    @for (column of footerColumns; track column.title) {
+      <div class="footer-column">
+        <h4>{{ column.title }}</h4>
+
+        @for (link of column.links; track link) {
+          <a href="#">{{ link }}</a>
+        }
+      </div>
+    }
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 {{ storeName }}. Built as an Angular storefront demo.</p>
+  </div>
+</footer>
