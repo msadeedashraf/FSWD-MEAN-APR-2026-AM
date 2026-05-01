@@ -1,0 +1,237 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+header
+{
+
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+
+}
+header h1{
+    margin: 0;
+}
+
+nav {
+
+    background-color: #ff8500;
+    color: #fff;
+    padding: 10px;
+}
+
+nav ul {
+list-style: none;
+}
+
+nav ul li {
+
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+footer{
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+footer p a {
+
+    color: #f7df04;
+    text-decoration: none;
+}
+
+#hero
+{
+    background-image: url("image/mainPic2.jpg");
+    /*background-image: url("https://cbcambersg.blob.core.windows.net/images/mainPic2.jpg");*/
+
+    /*background-image: url("https://sadeedsg.blob.core.windows.net/images/main-desk.jpg");*/
+    /*background-image: url("https://jadesg.blob.core.windows.net/images/mainPic2.jpg");*/
+    /*https://jadesg.blob.core.windows.net/images/mainPic2.jpg*/
+
+    
+    
+background-size: cover;
+display: flex;
+justify-content: center;
+height: 500px;
+align-items: center;
+text-align: center;
+color: #f4dfd2;
+}
+#hero-section{
+
+  text-align: center; 
+  margin-top: 100px; 
+}
+
+#hero-section h2{
+
+    margin-bottom:30px;
+    color: rgb(165, 153, 209);
+  font-size: 36px;
+}
+
+.vission-statement {
+
+    font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+  color: rgb(216, 216, 233);
+
+}
+
+#contact-form-section
+ {
+padding: 20px;
+
+ }
+ 
+ #contact-form-section h2
+ {
+    margin-bottom: 10px;
+
+ }
+ 
+
+ #contact-form {
+background-color: #ffffff;
+padding: 20px;
+ }
+ #contact-form input,
+ #contact-form textarea
+ {
+display: block;
+width: 100%;
+margin-bottom: 10px;
+padding: 5px;
+border: 1px solid #cccccc;
+resize: vertical;
+ }
+
+
+#contact-form input[type="submit"]
+{
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    margin-top: 50px;
+    border: none;
+
+}
+
+
+.form-div {
+
+    margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/*Start of privacy page styles*/
+.privacy-div
+{
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+
+}
+
+#privacy-section
+ {
+padding: 20px;
+
+ }
+ 
+ #privacy-section h2
+ {
+    margin-bottom: 10px;
+
+ }
+
+/*End of privacy page styles*/
+
+/*Start of Terms page styles*/
+.term-div
+{
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+
+}
+
+#term-section
+ {
+padding: 20px;
+
+ }
+ 
+ #term-section h2
+ {
+    margin-bottom: 10px;
+
+ }
+
+/*End of Terms page styles*/
+
+/*Start of Job Listing page styles*/
+.joblist-div
+{
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+
+}
+
+#joblist-section
+ {
+padding: 20px;
+
+ }
+ 
+ #joblist-section h2
+ {
+    margin-bottom: 10px;
+
+ }
+ .job-listing {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #edebeb;
+
+ }
+ .learn-more {
+    text-align: right;
+ }
+
+/*End of Job Listing page styles*/
+
+
+
+
+
+
+
