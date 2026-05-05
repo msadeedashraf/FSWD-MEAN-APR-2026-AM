@@ -1,0 +1,58 @@
+<aside class="summary-section">
+  <div class="summary-card">
+    <h2>Order Summary</h2>
+    <p><strong>Items:</strong> {{ totalItems }}</p>
+    <p><strong>Total:</strong> {{ cartTotal | currency }}</p>
+
+    @if (cart.length > 0) {
+      <button class="buy-btn" (click)="placeOrder.emit()">Proceed to Checkout</button>
+      <button class="clear-btn" (click)="clear.emit()">Clear Cart</button>
+    } @else {
+      <p class="empty-message">Add items to see your summary.</p>
+    }
+
+    @if (orderMessage) {
+      <div class="status-box" [class.success]="orderPlaced" [class.error]="!orderPlaced">
+        {{ orderMessage }}
+      </div>
+    }
+  </div>
+
+  <div class="cart-preview">
+    <h3>Your Cart</h3>
+
+    @if (cart.length === 0) {
+      <p class="empty-message">Your cart is empty.</p>
+    } @else {
+      @for (item of cart; track item.id) {
+        <div class="cart-item">
+          <div class="cart-item-info">
+            <strong>{{ item.name }}</strong>
+            <p>{{ item.price | currency }} x {{ item.quantity }}</p>
+            <p class="line-total">Subtotal: {{ item.price * item.quantity | currency }}</p>
+
+            @if (item.quantity === item.stock) {
+              <p class="warning-text">Maximum stock reached</p>
+            }
+          </div>
+
+          <div class="cart-controls">
+            <button
+              class="qty-btn"
+              (click)="increase.emit(item.id)"
+              [disabled]="item.quantity === item.stock"
+            >
+              +
+            </button>
+
+            <button class="qty-btn" (click)="decrease.emit(item.id)">-</button>
+
+            <button class="remove-btn" (click)="remove.emit(item.id)">
+              Remove
+            </button>
+          </div>
+        </div>
+      }
+    }
+  </div>
+</aside>

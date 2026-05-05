@@ -1,0 +1,49 @@
+<header class="topbar">
+  <div class="topbar-left">
+    <div class="logo">mini<span>store</span></div>
+    <div class="location">{{ location }}</div>
+  </div>
+
+  <div class="search-area">
+    <select
+      class="search-category"
+      [ngModel]="selectedCategory"
+      (ngModelChange)="selectedCategoryChange.emit($event)"
+    >
+      @for (category of categories; track category) {
+        <option [value]="category">{{ category }}</option>
+      }
+    </select>
+
+    <input
+      type="text"
+      [ngModel]="searchText"
+      (ngModelChange)="searchTextChange.emit($event)"
+      placeholder="Search {{ storeName }}"
+    />
+
+    <button class="search-btn">Search</button>
+  </div>
+
+  <div class="topbar-right">
+    <div class="nav-box">
+      <small>Hello, Sign in</small>
+      <strong>Account</strong>
+    </div>
+
+    <div class="nav-box">
+      <small>Returns</small>
+      <strong>& Orders</strong>
+    </div>
+
+    <div class="cart-box">
+      🛒 <strong>Cart ({{ totalItems }})</strong>
+    </div>
+  </div>
+</header>
+
+<nav class="subnav">
+  @for (link of navLinks; track link.label) {
+    <a [href]="link.href">{{ link.label }}</a>
+  }
+</nav>

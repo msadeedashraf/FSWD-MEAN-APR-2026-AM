@@ -1,0 +1,48 @@
+
+<app-navbar
+  [storeName]="storeName"
+  [location]="location"
+  [navLinks]="navLinks"
+  [categories]="categories"
+  [selectedCategory]="selectedCategory()"
+  [searchText]="searchText()"
+  [totalItems]="totalItems()"
+  (searchTextChange)="updateSearchText($event)"
+  (selectedCategoryChange)="updateSelectedCategory($event)"
+/>
+<app-hero
+  [title]="heroTitle"
+  [text]="heroText"
+/>
+
+<main class="page-content">
+
+  <!-- product-list component -->
+<!-- <app-product-list/> -->
+ <app-product-list
+    [products]="filteredProducts()"
+    [cart]="cart()"
+    (addProduct)="addToCart($event)"
+  />
+
+<!-- cart-summary component-->
+<!-- <app-cart-summary/> -->
+   <app-cart-summary
+    [cart]="cart()"
+    [totalItems]="totalItems()"
+    [cartTotal]="cartTotal()"
+    [orderPlaced]="orderPlaced()"
+    [orderMessage]="orderMessage()"
+    (increase)="increaseQuantity($event)"
+    (decrease)="decreaseQuantity($event)"
+    (remove)="removeFromCart($event)"
+    (clear)="clearCart()"
+    (placeOrder)="placeOrder()"
+  />
+
+</main>
+
+<app-footer
+  [storeName]="storeName"
+  [footerColumns]="footerColumns"
+/>
