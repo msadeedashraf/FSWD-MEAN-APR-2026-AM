@@ -1,22 +1,22 @@
-# Level 3 Student Guide — Angular Signals Storefront
+# Stage 3 Student Guide — Angular Signals Storefront
 
 ## Project Theme
 
 We are building a small online store called **Mini Tech Store**.
 
-In Level 1, we built a hardcoded HTML/CSS storefront skeleton.
+In Stage 1, we built a hardcoded HTML/CSS storefront skeleton.
 
-In Level 2, we converted the static page into an Angular template using TypeScript data and `@for` loops.
+In Stage 2, we converted the static page into an Angular template using TypeScript data and `@for` loops.
 
-In **Level 3**, we make the app interactive.
+In **Stage 3**, we make the app interactive.
 
-This is the level where the project starts behaving like a real frontend app.
+This is the Stage where the project starts behaving like a real frontend app.
 
 ---
 
-# What You Will Build in Level 3
+# What You Will Build in Stage 3
 
-By the end of this level, your app will have:
+By the end of this Stage, your app will have:
 
 - a product list
 - a working search box
@@ -33,11 +33,11 @@ By the end of this level, your app will have:
 
 ---
 
-# Big Idea of Level 3
+# Big Idea of Stage 3
 
-In Level 2, the page displayed data.
+In Stage 2, the page displayed data.
 
-In Level 3, the page reacts to user actions.
+In Stage 3, the page reacts to user actions.
 
 That means we need to manage **state**.
 
@@ -118,7 +118,7 @@ Good apps avoid storing duplicate data when it can be calculated.
 
 ---
 
-# Level 3 Project Flow
+# Stage 3 Project Flow
 
 The app now works like this:
 
@@ -150,9 +150,9 @@ Data changes → UI updates.
 
 ---
 
-# Files Used in Level 3
+# Files Used in Stage 3
 
-At this level, we are still keeping everything in one Angular component.
+At this Stage, we are still keeping everything in one Angular component.
 
 You will work with:
 
@@ -473,7 +473,7 @@ import { Component, computed, signal } from '@angular/core';
 
 Why?
 
-Because Level 3 uses Angular signals.
+Because Stage 3 uses Angular signals.
 
 - `signal()` stores reactive data
 - `computed()` calculates reactive values
@@ -783,7 +783,7 @@ If there is data, show the list.
 
 The CSS controls the storefront look.
 
-Use this Level 3 CSS.
+Use this Stage 3 CSS.
 
 ```css
 * {
@@ -1455,11 +1455,11 @@ Sets an HTML property from TypeScript.
 
 ---
 
-# Step 9 — Why This Level Matters
+# Step 9 — Why This Stage Matters
 
-Level 3 is the first level where the app has real behavior.
+Stage 3 is the first Stage where the app has real behavior.
 
-This level teaches the foundation of frontend development:
+This Stage teaches the foundation of frontend development:
 
 ```txt
 State → Template → User Action → State Update → UI Update
@@ -1491,9 +1491,9 @@ If you split the app too early, students may memorize file movement without unde
 
 ---
 
-# Level 3 Summary
+# Stage 3 Summary
 
-In this level, you upgraded the storefront from a static Angular template into an interactive app.
+In this Stage, you upgraded the storefront from a static Angular template into an interactive app.
 
 You learned:
 
@@ -1510,8 +1510,8 @@ You learned:
 
 This is the real turning point of the project.
 
-Level 1 was structure.
-Level 2 was Angular data display.
-Level 3 is interactive state.
+Stage 1 was structure.
+Stage 2 was Angular data display.
+Stage 3 is interactive state.
 
-Next level: polish the behavior, category filtering, stock indicators, and better cart UX.
+Next Stage: polish the behavior, category filtering, stock indicators, and better cart UX.
