@@ -1,0 +1,61 @@
+<header class="topbar">
+  <div class="topbar-left">
+    <div class="logo">mini<span>store</span></div>
+    <div class="location">{{ store.location }}</div>
+  </div>
+
+  <div class="search-area">
+    <!--
+      Read selected category from the service.
+      Update the service when the dropdown changes.
+    -->
+    <select
+      class="search-category"
+      [ngModel]="store.selectedCategory()"
+      (ngModelChange)="store.updateSelectedCategory($event)"
+    >
+      @for (category of store.categories; track category) {
+        <option [value]="category">{{ category }}</option>
+      }
+    </select>
+
+    <!--
+      Read search text from the service.
+      Update the service when the user types.
+    -->
+    <input
+      type="text"
+      [ngModel]="store.searchText()"
+      (ngModelChange)="store.updateSearchText($event)"
+      placeholder="Search {{ store.storeName }}"
+    />
+
+    <button class="search-btn">Search</button>
+  </div>
+
+  <div class="topbar-right">
+    <div class="nav-box">
+      <small>Hello, Sign in</small>
+      <strong>Account</strong>
+    </div>
+
+    <div class="nav-box">
+      <small>Returns</small>
+      <strong>& Orders</strong>
+    </div>
+
+    <!--
+      Cart count comes from the service.
+      When cart changes, this updates automatically.
+    -->
+    <div class="cart-box">
+      🛒 <strong>Cart ({{ store.totalItems() }})</strong>
+    </div>
+  </div>
+</header>
+
+<nav class="subnav">
+  @for (link of store.navLinks; track link.label) {
+    <a [href]="link.href">{{ link.label }}</a>
+  }
+</nav>

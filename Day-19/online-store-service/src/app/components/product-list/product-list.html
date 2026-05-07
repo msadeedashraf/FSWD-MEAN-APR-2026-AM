@@ -1,0 +1,56 @@
+<section id="products" class="products-section">
+  <div class="section-title-row">
+    <div>
+      <h2>Featured Products</h2>
+      <p>Service-based Angular storefront version</p>
+    </div>
+  </div>
+
+  <!--
+    Product list comes from the service.
+  -->
+  @if (store.filteredProducts().length === 0) {
+    <div class="empty-panel">
+      <p>No matching products found.</p>
+    </div>
+  } @else {
+    <div class="products-grid">
+      @for (product of store.filteredProducts(); track product.id) {
+        <article class="product-card">
+          <div class="product-image">Image</div>
+
+          <h3>{{ product.name }}</h3>
+
+          <p class="product-category">Category: {{ product.category }}</p>
+          <p class="product-rating">{{ product.rating }}</p>
+          <p class="product-price">{{ product.price | currency }}</p>
+          <p class="product-stock">Stock: {{ product.stock }}</p>
+
+          <!--
+            The service knows how many of this product are in the cart.
+          -->
+          @if (store.cartQuantityForProduct(product.id) > 0) {
+            <p class="in-cart-message">
+              In cart: {{ store.cartQuantityForProduct(product.id) }} / {{ product.stock }}
+            </p>
+          }
+
+          <!--
+            ProductList directly calls the service method.
+          -->
+          <button
+            class="cart-btn"
+            (click)="store.addToCart(product)"
+            [disabled]="store.isProductMaxed(product)"
+          >
+            @if (store.isProductMaxed(product)) {
+              Max Stock Reached
+            } @else {
+              Add to Cart
+            }
+          </button>
+        </article>
+      }
+    </div>
+  }
+</section>
