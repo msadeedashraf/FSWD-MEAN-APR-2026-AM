@@ -1,0 +1,54 @@
+<main class="checkout-page">
+  <section class="checkout-card">
+    <h1>Checkout</h1>
+
+    <!--
+      If cart is empty, show a friendly message.
+    -->
+    @if (store.cart().length === 0) {
+      <p>Your cart is empty.</p>
+
+      <a routerLink="/products" class="continue-btn">
+        Continue Shopping
+      </a>
+    } @else {
+      <!--
+        Show each item in the cart.
+      -->
+      <div class="checkout-list">
+        @for (item of store.cart(); track item.id) {
+          <div class="checkout-item">
+            <div>
+              <strong>{{ item.name }}</strong>
+              <p>{{ item.price | currency }} x {{ item.quantity }}</p>
+            </div>
+
+            <span>{{ item.price * item.quantity | currency }}</span>
+          </div>
+        }
+      </div>
+
+      <div class="checkout-total">
+        <strong>Total:</strong>
+        <strong>{{ store.cartTotal() | currency }}</strong>
+      </div>
+
+      <button
+        class="place-order-btn"
+        (click)="store.placeOrder()"
+      >
+        Place Order
+      </button>
+
+      @if (store.orderMessage()) {
+        <div
+          class="status-box"
+          [class.success]="store.orderPlaced()"
+          [class.error]="!store.orderPlaced()"
+        >
+          {{ store.orderMessage() }}
+        </div>
+      }
+    }
+  </section>
+</main>
